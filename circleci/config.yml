@@ -6,8 +6,10 @@ jobs:
 
     steps:
       - checkout
-      - run: # Add your build commands here
-
+      - run: 
+      	name: install npm dependencies
+      	command:
+      	  npm install --save
   deploy:
     docker:
       - image: your-deployment-image # Specify the Docker image for deployment
