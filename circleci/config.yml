@@ -1,22 +1,23 @@
 version: 2.1
 jobs:
   build:
+    working_directory: ~/circleci-python
     docker:
-      - image: your-docker-image # Specify the Docker image you need for your project
-
+      - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: 
+      - run: python3 src/white_noise_portfolio.py
       	name: install npm dependencies
       	command:
       	  npm install --save
   deploy:
+    working_directory: ~/circleci-python
     docker:
-      - image: your-deployment-image # Specify the Docker image for deployment
+      - image: "circleci/python:3.6.4" # Specify the Docker image for deployment
 
     steps:
       - checkout
-      - run: # Add your deployment commands here
+      - run: python3 src/white_noise_portfolio.py
 
 workflows:
   version: 2
